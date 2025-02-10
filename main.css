@@ -4,6 +4,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
+	scroll-behavior: smooth;
 }
 
 /* Centering App */
@@ -12,7 +13,17 @@
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+	background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+	animation: bgAnimation 6s infinite alternate ease-in-out;
+}
+
+@keyframes bgAnimation {
+	0% {
+		background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+	}
+	100% {
+		background: linear-gradient(135deg, #16222A, #3A6073, #4F8A8B);
+	}
 }
 
 /* Calculator Container */
@@ -25,12 +36,13 @@
 	flex-direction: column;
 	border-radius: 1.5rem;
 	overflow: hidden;
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-	transition: transform 0.3s ease-in-out;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .calculator:hover {
-	transform: scale(1.02);
+	transform: scale(1.05);
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
 }
 
 /* Display Section */
@@ -45,6 +57,11 @@
 	flex: 1 1 0%;
 	background: rgba(0, 0, 0, 0.85);
 	border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+	transition: background 0.5s ease-in-out;
+}
+
+.display:hover {
+	background: rgba(50, 50, 50, 0.9);
 }
 
 .display .content {
@@ -61,6 +78,7 @@
 	font-size: 1.5rem;
 	margin-bottom: 0.5rem;
 	color: #b0b0b0;
+	transition: color 0.3s ease-in-out;
 }
 
 .display .output {
@@ -69,6 +87,7 @@
 	width: 100%;
 	white-space: nowrap;
 	color: #ffffff;
+	transition: color 0.3s ease-in-out;
 }
 
 .display .operator {
@@ -89,7 +108,12 @@
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(5, 1fr);
 	grid-gap: 1rem;
-	box-shadow: 0px -2px 16px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px -2px 16px rgba(0, 0, 0, 0.3);
+	transition: background 0.5s ease-in-out;
+}
+
+.keys:hover {
+	background: rgba(255, 255, 255, 0.2);
 }
 
 .keys .key {
@@ -101,26 +125,27 @@
 	height: 60px;
 	background: linear-gradient(145deg, #6a1b9a, #8e24aa);
 	border-radius: 1rem;
-	transition: all 0.2s ease-in-out;
+	transition: all 0.3s ease-in-out;
 	user-select: none;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
 .keys .key span {
 	font-size: 2rem;
 	font-weight: 700;
 	color: #ffffff;
-	transition: 0.3s;
+	transition: color 0.3s;
 }
 
 .keys .key:hover {
-	box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.3);
-	transform: scale(1.05);
+	box-shadow: inset 0px 0px 12px rgba(0, 0, 0, 0.4);
+	transform: scale(1.1);
+	background: linear-gradient(145deg, #4a148c, #7b1fa2);
 }
 
 .keys .key:active {
 	transform: scale(0.95);
-	background: linear-gradient(145deg, #4a148c, #7b1fa2);
+	background: linear-gradient(145deg, #3a0e6b, #5c0c87);
 }
 
 .keys .key.operator {
