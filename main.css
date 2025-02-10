@@ -1,19 +1,23 @@
+/* General Reset */
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 
+/* Centering App */
 .app {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
 }
 
+/* Calculator Container */
 .calculator {
-	background-color: #4b3270;
+	background: rgba(34, 34, 34, 0.95);
 	width: 100%;
 	max-width: 375px;
 	min-height: 640px;
@@ -21,17 +25,26 @@
 	flex-direction: column;
 	border-radius: 1.5rem;
 	overflow: hidden;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	transition: transform 0.3s ease-in-out;
 }
 
+.calculator:hover {
+	transform: scale(1.02);
+}
+
+/* Display Section */
 .display {
 	min-height: 200px;
 	padding: 1.5rem;
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-end;
-	color: rgb(97, 194, 28);
+	color: #61c21c;
 	text-align: right;
 	flex: 1 1 0%;
+	background: rgba(0, 0, 0, 0.85);
+	border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .display .content {
@@ -45,8 +58,9 @@
 
 .display .input {
 	width: 100%;
-	font-size: 1.25rem;
+	font-size: 1.5rem;
 	margin-bottom: 0.5rem;
+	color: #b0b0b0;
 }
 
 .display .output {
@@ -54,19 +68,21 @@
 	font-weight: 700;
 	width: 100%;
 	white-space: nowrap;
+	color: #ffffff;
 }
 
 .display .operator {
-	color: #0f0bda;
+	color: #ff5757;
 }
 
 .display .brackets,
 .display .percent {
-	color: #2307df;
+	color: #ff9500;
 }
 
+/* Keys Section */
 .keys {
-	background-color: #4f3672;
+	background: rgba(255, 255, 255, 0.1);
 	padding: 1.5rem;
 	border-radius: 1.5rem 1.5rem 0 0;
 	display: grid;
@@ -79,35 +95,46 @@
 .keys .key {
 	position: relative;
 	cursor: pointer;
-
-	display: block;
-	height: 0;
-	padding-top: 100%;
-	background-color: #96108770;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 60px;
+	background: linear-gradient(145deg, #6a1b9a, #8e24aa);
 	border-radius: 1rem;
-	transition: 0.2s;
+	transition: all 0.2s ease-in-out;
 	user-select: none;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .keys .key span {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-
 	font-size: 2rem;
 	font-weight: 700;
-	color: #4fa427;
+	color: #ffffff;
+	transition: 0.3s;
 }
 
 .keys .key:hover {
-	box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.3);
+	transform: scale(1.05);
+}
+
+.keys .key:active {
+	transform: scale(0.95);
+	background: linear-gradient(145deg, #4a148c, #7b1fa2);
+}
+
+.keys .key.operator {
+	background: linear-gradient(145deg, #d32f2f, #e57373);
 }
 
 .keys .key.operator span {
-	color: #EB6666;
+	color: #fff;
+}
+
+.keys .key.action {
+	background: linear-gradient(145deg, #f9a825, #fdd835);
 }
 
 .keys .key.action span {
-	color: #aeae1c;
+	color: #fff;
 }
